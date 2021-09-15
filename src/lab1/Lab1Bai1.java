@@ -9,8 +9,8 @@ public class Lab1Bai1 {
             String name = scanner.nextLine();       
             System.out.print("Điểm TB: ");
             float grade = scanner.nextFloat();
-            if (grade < 0) {
-                throw new ArithmeticException ("Điểm nhập không hợp lệ!");
+            if (grade < 0 || grade > 10) {
+                throw new ArithmeticException ("Điểm nhập không hợp lệ (Thang điểm 10)!");
             } else {
                 System.out.printf("%s %.2f điểm", name, grade);
                 System.out.println();

@@ -6,7 +6,7 @@ public class Lab1Bai3 {
         Scanner scanner = new Scanner(System.in);
         try {
             System.out.print("Chiều dài cạnh: ");        
-            double d = scanner.nextDouble();
+            float d = scanner.nextFloat();
             if (d < 0) {
                 throw new ArithmeticException ("Kích thước nhập không hợp lệ!");
             } else {

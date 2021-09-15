@@ -12,7 +12,7 @@ import java.util.Scanner;
  *
  * @author DELL
  */
-public class mainClass {
+public class MainClass {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         menu(scanner);

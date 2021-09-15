@@ -22,6 +22,5 @@ public class Lab1Bai4 {
         } catch (Exception ex) {
             System.out.println("Dữ liệu nhập không hợp lệ!");
         }
-        
     }
 }

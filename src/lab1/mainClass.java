@@ -1,36 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package lab1;
 import java.util.Scanner;
-/**
- *
- * @author DELL
- */
-public class mainClass {
 
-    /**
-     * @param args the command line arguments
-     */
+public class MainClass {
+    
     public static void main(String[] args) {
-        // TODO code application logic here
         Scanner scanner = new Scanner(System.in);
-        Triangle(scanner);
-    }
-    public static void Triangle(Scanner scanner) {
-        float a, b, c;
-        System.out.print("Nhập độ dài 3 cạnh: ");
-        try {
-            a = scanner.nextFloat();        
-            b = scanner.nextFloat();
-            c = scanner.nextFloat();
-        } catch (Exception ex) {
-            System.out.println("Dữ liệu không đúng");
-        }
-        
-
     }
     public static void Bai1(Scanner scanner) {
         System.out.print("Họ và Tên: ");
