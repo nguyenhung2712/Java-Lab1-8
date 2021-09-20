@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 public class StudentArr {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        handleStudentArr(scanner);
+        handleStudentArr();
     }
     public static String handleAbility(float grade) {
         if (grade < 5) {
@@ -19,7 +18,8 @@ public class StudentArr {
             return "Xuất sắc";  
         }
     }
-    public static void handleStudentArr(Scanner scanner) {
+    public static void handleStudentArr() {
+        Scanner scanner = new Scanner(System.in);
         int length;
         do {
             System.out.print("Nhập số lượng sinh viên: ");

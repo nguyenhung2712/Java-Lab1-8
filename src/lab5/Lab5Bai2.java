@@ -4,48 +4,60 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class Lab5Bai2 {
+    static ArrayList<String> nameArr = new ArrayList<>();
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         menu(scanner);
     }
     public static void menu(Scanner scanner) {
-        ArrayList<String> nameArr = new ArrayList<>();
-        System.out.println("Nhập mảng họ tên");
-        nhap(nameArr, scanner);
-        System.out.println("\nMảng sau khi đã nhập");
-        xuat(nameArr);
-        System.out.println("+----------------------------------+");
-        System.out.println("1. Xuất danh sách ngẫu nhiên");
-        System.out.println("2. Xuất danh sách sau khi sắp xếp giảm dần");
-        System.out.println("3. Tìm và xóa phần tử nhập từ bàn phím");
-        System.out.println("4. Kết thúc");
-        System.out.println("+----------------------------------+");
-        System.out.print("Chọn chức năng: ");
-        try {
+        
+        while (true) {
+            System.out.println("+----------------------------------+");
+            System.out.println("1. Nhập danh sách họ tên");
+            System.out.println("2. Xuất danh sách vừa nhập");
+            System.out.println("3. Xuất danh sách ngẫu nhiên");
+            System.out.println("4. Xuất danh sách sau khi sắp xếp giảm dần");
+            System.out.println("5. Tìm và xóa phần tử nhập từ bàn phím");
+            System.out.println("6. Kết thúc");
+            System.out.println("+----------------------------------+");
+            System.out.print("Chọn chức năng: ");
             int choose;
+            boolean exitCheck = false;
             do {
                 choose = scanner.nextInt();
-                if (choose < 1 || choose > 4) {
+                if (choose < 1 || choose > 6) {
                     System.out.println("Vui lòng nhập lại.");
                 }
-            } while(choose < 1 || choose > 4);
+            } while(choose < 1 || choose > 6);
             switch (choose) {
-                case 1 -> ngaunhien(nameArr);
-                case 2 -> sapxep(nameArr);
-                case 3 -> {
+                case 1 -> nhap();
+                case 2 -> xuat();
+                case 3 -> ngaunhien();
+                case 4 -> sapxep();
+                case 5 -> {
                     System.out.print("Nhập phần tử muốn xóa: ");
                     scanner.nextLine();
                     String name = scanner.nextLine();
-                    xoa(nameArr, name);
+                    xoa(name);
                 }
-                case 4 -> System.exit(0);
-                default -> System.exit(0);
+                case 6 -> {
+                    System.out.println("Ngừng chương trình");
+                    exitCheck = true;
+                    System.exit(0);
+                }
+                default -> {
+                    System.out.println("Ngừng chương trình");
+                    exitCheck = true;
+                    System.exit(0);
+                }
             }
-        } catch (Exception ex) {
-            System.out.print("Dữ liệu không hợp lệ.");
+            if (exitCheck) {
+                break;
+            }
         }
     }
-    private static void nhap(ArrayList<String> nameArr, Scanner scanner) {
+    private static void nhap() {
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             try {
                 String name = scanner.nextLine();
@@ -59,23 +71,23 @@ public class Lab5Bai2 {
             }
         }
     }
-    private static void xuat(ArrayList<String> nameArr) {
+    private static void xuat() {
         nameArr.forEach(name -> {
             System.out.println(name);
         });
     }
-    private static void ngaunhien(ArrayList<String> nameArr) {
+    private static void ngaunhien() {
         Collections.shuffle(nameArr);
         System.out.println("\nMảng sau khi sắp xếp ngẫu nhiên");
-        xuat(nameArr);
+        xuat();
     }
-    private static void sapxep(ArrayList<String> nameArr) {
+    private static void sapxep() {
         Collections.sort(nameArr);
         Collections.reverse(nameArr);
         System.out.println("\nMảng sau khi sắp xếp giảm dần");
-        xuat(nameArr);
+        xuat();
     }
-    private static void xoa(ArrayList<String> nameArr, String nameFind) {
+    private static void xoa(String nameFind) {
         boolean checkFound = false;
         for (String name: nameArr) {
             if (name.equals(nameFind)) {
@@ -88,7 +100,7 @@ public class Lab5Bai2 {
             System.out.println("\nKhông tìm thấy phần tử cần xóa\n");
         } else {
             System.out.printf("\nMảng sau khi xóa phần tử %s\n", nameFind);
-            xuat(nameArr);
+            xuat();
         }
     }
 }
